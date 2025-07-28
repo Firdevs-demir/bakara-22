@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakara Suresi 22. Ayet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f0e6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+    font-family: 'Scheherazade New', serif;
+    font-size: 24px;
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 2px solid #e74c3c;
+    padding-bottom: 10px;
+}
+        .ayet-container {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .arapca {
+            font-family: 'Scheherazade New', serif;
+            font-size: 32px;
+            text-align: right;
+            line-height: 2.5;
+            margin-bottom: 25px;
+            font-weight: 400;
+            color: #1a5276;
+        }
+        .kelime {
+            transition: all 0.3s;
+            cursor: pointer;
+            padding: 0 3px;
+            border-radius: 5px;
+        }
+        .kelime.vurgulu {
+            background-color: #e74c3c;
+            color: white;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+        .aciklama {
+            background-color: #eaf2f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #2980b9;
+        }
+        .player-controls {
+            background: #2c3e50;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .controls-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+        input[type="range"] {
+            flex-grow: 1;
+            height: 8px;
+            border-radius: 10px;
+        }
+        .time-display {
+            font-family: monospace;
+            color: #ecf0f1;
+            min-width: 100px;
+            text-align: center;
+        }
+        .kelime-listesi {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: right;
+            margin-top: 20px;
+        }
+        .kelime-listesi .kelime {
+            padding: 8px 15px;
+            background: #3498db;
+            color: white;
+            border-radius: 50px;
+            font-size: 20px;
+            font-family: 'Scheherazade New', serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h1>
+    <h1>el- Bakara: 22. Ayet</h1>
+    
+    <div class="ayet-container">
+        <div class="arapca" id="ayet-metni">
+            <span class="kelime" data-start="0">اَلَّذِي جَعَلَ</span>
+            <span class="kelime" data-start="3">لَكُمُ الْاَرْضَ</span>
+            <span class="kelime" data-start="6">فِرَاشًا وَالسَّمَآءَ</span>
+            <span class="kelime" data-start="9">بِنَآءً وَاَنْزَلَ</span>
+            <span class="kelime" data-start="12">مِنَ السَّمَآءِ</span>
+            <span class="kelime" data-start="15">مَآءً فَاَخْرَجَ بِهِ</span>
+            <span class="kelime" data-start="18">مِنَ الثَّمَرَاتِ</span>
+            <span class="kelime" data-start="21">رِزْقًا لَكُمْ</span>
+            <span class="kelime" data-start="24">فَلَا تَجْعَلُوا لِلَّهِ</span>
+            <span class="kelime" data-start="27">اَنْدَادًا وَاَنْتُمْ</span>
+            <span class="kelime" data-start="30">تَعْلَمُونَ</span>
+        </div>
+        
+        <div class="aciklama">
+            <strong>Türkçe Meali:</strong> "O Allah ki, yeri sizin için bir döşek, göğü de bir bina yaptı. Gökten su indirip onunla size rızık olarak çeşitli ürünler çıkardı. Artık bile bile Allah'a ortaklar koşmayın."
+        </div>
+        
+        <div class="player-controls">
+            <audio id="audio-player" src="ayet.mp3"></audio>
+            
+            <div class="controls-row">
+                <button id="play-btn">▶ Tamamını Oynat</button>
+                <button id="pause-btn">❚❚ Duraklat</button>
+                <button id="restart-btn">↻ Baştan Al</button>
+            </div>
+            
+            <div class="controls-row">
+                <input type="range" id="progress-bar" min="0" max="100" value="0">
+                <span class="time-display" id="time-display">0:00 / 0:00</span>
+            </div>
+            
+            <div class="controls-row">
+                <label style="color:#ecf0f1;">Hız:</label>
+                <input type="range" id="speed-control" min="0.5" max="2" step="0.1" value="1">
+                <span id="speed-value" style="color:#ecf0f1;">1x</span>
+            </div>
+            
+            <div class="kelime-listesi" id="kelime-listesi"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('audio-player');
+            const playBtn = document.getElementById('play-btn');
+            const pauseBtn = document.getElementById('pause-btn');
+            const restartBtn = document.getElementById('restart-btn');
+            const progressBar = document.getElementById('progress-bar');
+            const timeDisplay = document.getElementById('time-display');
+            const speedControl = document.getElementById('speed-control');
+            const speedValue = document.getElementById('speed-value');
+            const ayetMetni = document.getElementById('ayet-metni');
+            const kelimeler = document.querySelectorAll('.kelime');
+            const kelimeListesi = document.getElementById('kelime-listesi');
+            let currentAudio = null;
+
+            // Kelime listesini oluştur (sağdan sola Arapça sıralı)
+            kelimeler.forEach(kelime => {
+                const kelimeKopyasi = kelime.cloneNode(true);
+                kelimeKopyasi.addEventListener('click', function() {
+                    // Önceki sesi durdur
+                    if(currentAudio) currentAudio.pause();
+                    audio.pause();
+                    
+                    // Tıklanan kelimeyi vurgula
+                    kelimeler.forEach(k => k.classList.remove('vurgulu'));
+                    kelime.classList.add('vurgulu');
+                    
+                    // Kelime sesini çal
+                    const kelimeMetni = this.textContent.trim();
+                    currentAudio = new Audio(`${kelimeMetni}.mp3`);
+                    currentAudio.playbackRate = speedControl.value;
+                    currentAudio.play().catch(e => console.error("Ses çalınamadı:", e));
+                });
+                kelimeListesi.prepend(kelimeKopyasi); // Arapça sıralama için prepend
+            });
+
+            // Tamamını oynat
+            playBtn.addEventListener('click', function() {
+                if(currentAudio) currentAudio.pause();
+                audio.playbackRate = speedControl.value;
+                audio.play().catch(e => console.error("Oynatma hatası:", e));
+            });
+
+            // Diğer kontroller
+            pauseBtn.addEventListener('click', () => audio.pause());
+            restartBtn.addEventListener('click', () => {
+                audio.currentTime = 0;
+                audio.play().catch(e => console.error("Oynatma hatası:", e));
+            });
+
+            // Hız kontrolü
+            speedControl.addEventListener('input', function() {
+                const speed = this.value;
+                audio.playbackRate = speed;
+                if(currentAudio) currentAudio.playbackRate = speed;
+                speedValue.textContent = speed + 'x';
+            });
+
+            // İlerleme çubuğu
+            audio.addEventListener('timeupdate', function() {
+                const currentTime = audio.currentTime;
+                const duration = audio.duration || 1;
+                progressBar.value = (currentTime / duration) * 100;
+                
+                const formatTime = (seconds) => {
+                    const mins = Math.floor(seconds / 60);
+                    const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+                    return `${mins}:${secs}`;
+                };
+                timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+                
+                // Kelime vurgulama
+                kelimeler.forEach(kelime => {
+                    const startTime = parseFloat(kelime.getAttribute('data-start'));
+                    const endTime = startTime + 3; // Her kelime 3 saniye varsayalım
+                    
+                    if(currentTime >= startTime && currentTime < endTime) {
+                        kelimeler.forEach(k => k.classList.remove('vurgulu'));
+                        kelime.classList.add('vurgulu');
+                    }
+                });
+            });
+
+            progressBar.addEventListener('input', function() {
+                const seekTime = (audio.duration * this.value) / 100;
+                audio.currentTime = seekTime;
+            });
+        });
+    </script>
+</body>
+</html>
